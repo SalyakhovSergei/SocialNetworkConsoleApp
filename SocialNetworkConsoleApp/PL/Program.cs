@@ -1,56 +1,43 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using System.Threading.Channels;
+using SocialNetworkConsoleApp.BLL.Exceptions;
 using SocialNetworkConsoleApp.BLL.Models;
 using SocialNetworkConsoleApp.BLL.Services;
+using SocialNetworkConsoleApp.PL.Views;
 
-namespace SocialNetworkConsoleApp
-{
-    class Program
+namespace SocialNetworkConsoleApp.PL {
+  class Program
+  {
+    static MessageService messageService;
+    static UserService userService;
+    public static MainView mainView;
+    public static RegistrationView registrationView;
+    public static AuthenticationView authenticationView;
+    public static UserMenuView userMenuView;
+    public static UserInfoView userInfoView;
+    public static UserDataUpdateView userDataUpdateView;
+    public static MessageSendingView messageSendingView;
+    public static UserIncomingMessageView userIncomingMessageView;
+    public static UserOutcomingMessageView userOutcomingMessageView;
+
+    static void Main(string[] args)
     {
-        public static UserService userService = new UserService();
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to our social network");
-            while (true)
-            {
-                Console.WriteLine("Введите Имя пользователя для регистрации");
+      userService = new UserService();
+      messageService = new MessageService();
 
-                string firstName = Console.ReadLine();
+      mainView = new MainView();
+      registrationView = new RegistrationView(userService);
+      authenticationView = new AuthenticationView(userService);
+      userMenuView = new UserMenuView(userService);
+      userInfoView = new UserInfoView();
+      userDataUpdateView = new UserDataUpdateView(userService);
+      messageSendingView = new MessageSendingView(messageService, userService);
+      userIncomingMessageView = new UserIncomingMessageView();
+      userOutcomingMessageView = new UserOutcomingMessageView();
 
-                Console.WriteLine("фамилия:");
-                string lastName = Console.ReadLine();
-            
-                Console.WriteLine("пароль:");
-                string password = Console.ReadLine();
-            
-                Console.WriteLine("почта:");
-                string email = Console.ReadLine();
-
-                UserRegistrationData userRegistrationData = new UserRegistrationData()
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Password = password,
-                    Email = email
-                };
-                try
-                {
-                    userService.Register(userRegistrationData);
-                    Console.WriteLine("Регситрация прошла успешно");
-                }
-                catch (ArgumentNullException)
-                {
-                    Console.WriteLine("ввести корректное значение");
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Произошла ошибка");
-                }
-                Console.ReadLine();
-            }
-            
-        }
+      while (true)
+      {
+        mainView.Show();
+      }
     }
+  }
 }

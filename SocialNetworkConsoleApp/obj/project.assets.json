@@ -105,19 +105,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Анатолий\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Анатолий\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
       "projectName": "SocialNetworkConsoleApp",
-      "projectPath": "C:\\Users\\Анатолий\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\Анатолий\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Анатолий\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\obj\\",
+      "projectPath": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Анатолий\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -167,7 +167,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
