@@ -2,13 +2,13 @@
 {
     public class UserEntity
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Password { get; set; }
-        public string EMail { get; set; }
-        public string Photo { get; set; }
-        public string FavoriteMovie { get; set; }
-        public string FavoriteBook { get; set; }
+        public int id { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public string photo { get; set; }
+        public string favorite_movie { get; set; }
+        public string favorite_book { get; set; }
     }
 }

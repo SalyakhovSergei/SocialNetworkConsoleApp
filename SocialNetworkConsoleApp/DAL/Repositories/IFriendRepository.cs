@@ -7,7 +7,7 @@ namespace SocialNetworkConsoleApp.DAL.Repositories
     public interface IFriendRepository
     {
         int Create(FriendEntity friendEntity);
-        IEnumerable<FriendEntity> FindAllByUseId(int userid);
+        IEnumerable<FriendEntity> FindAllByUserId(int userid);
         int Delete(int id);
     }
 }

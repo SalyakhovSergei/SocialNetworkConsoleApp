@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj": {}
+    "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj": {
+    "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
         "projectName": "SocialNetworkConsoleApp",
-        "projectPath": "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\ssm19\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\obj\\",
+        "projectPath": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ssm19\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\ssm19\\.dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

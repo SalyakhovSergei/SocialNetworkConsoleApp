@@ -21,7 +21,7 @@ namespace SocialNetworkConsoleApp.PL.Views
 
             incomingMessages.ToList().ForEach(message =>
             {
-                Console.WriteLine("От кого: {0}. Текст сообщения: {1}", message.SenderEmail, message.Content);
+                Console.WriteLine($"От кого: {message.SenderEmail}. Текст сообщения: {message.Content}");
             });
         }
     }

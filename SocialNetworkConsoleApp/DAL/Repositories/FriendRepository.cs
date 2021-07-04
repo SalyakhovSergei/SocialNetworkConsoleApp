@@ -5,19 +5,19 @@ namespace SocialNetworkConsoleApp.DAL.Repositories
 {
     public class FriendRepository: BaseRepository, IFriendRepository
     {
-        public int Create(FriendEntity friendEntity)
+        public IEnumerable<FriendEntity> FindAllByUserId(int userId)
         {
-            return Execute(@"insert into Friends (user_id, friend_id) values (:user_id, friend_id)", friendEntity);
+            return Query<FriendEntity>(@"select * from friends where user_id = :user_id", new { user_id = userId });
         }
 
-        public IEnumerable<FriendEntity> FindAllByUseId(int userid)
+        public int Create(FriendEntity friendEntity)
         {
-            return Query<FriendEntity>(@"select * from Friends where user_id = :usr_id", new {user_id = userid});
+            return Execute(@"insert into friends (user_id,friend_id) values (:user_id,:friend_id)", friendEntity);
         }
 
         public int Delete(int id)
         {
-            return Execute(@"delete from Friends where id =:id_p", new {id_p = id});
+            return Execute(@"delete from friends where id = :id_p", new { id_p = id });
         }
     }
 }

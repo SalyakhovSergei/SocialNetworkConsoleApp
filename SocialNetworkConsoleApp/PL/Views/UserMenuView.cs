@@ -2,6 +2,7 @@
 using System.Linq;
 using SocialNetworkConsoleApp.BLL.Models;
 using SocialNetworkConsoleApp.BLL.Services;
+using System.Text;
 
 namespace SocialNetworkConsoleApp.PL.Views
 {
@@ -13,7 +14,7 @@ namespace SocialNetworkConsoleApp.PL.Views
             this.userService = userService;
         }
 
-        public void Show(User user)
+        public static void Show(User user)
         {
             while(true)
             {
@@ -44,6 +45,11 @@ namespace SocialNetworkConsoleApp.PL.Views
                             Program.userDataUpdateView.Show(user);
                             break;
                         }
+                    case "3":
+                    {
+                        Program.friendsInfoView.ShowFriends(user);
+                            break;
+                    }
 
                     case "4":
                         {

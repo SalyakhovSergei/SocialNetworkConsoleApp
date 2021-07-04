@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XnirkwiQ3nl6DGU1YBLrkIJnmkfSnQCPogpevb6Xq0C4Txr3iuh3dJXcFPmGGCTY1wySN10bDzODdnxnyztJzQ==",
+  "dgSpecHash": "RQSBMV7LJzqQ+pE1IZj/ilsMgPn0L+VKjh/o4owV3JAWMtq/FMgdoF/W0fszJ1huuBr/gwTYWRhbhKcziv54AQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ssm19\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
+  "projectFilePath": "C:\\Users\\admin\\RiderProjects\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp\\SocialNetworkConsoleApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ssm19\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
-    "C:\\Users\\ssm19\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.114.3\\stub.system.data.sqlite.core.netstandard.1.0.114.3.nupkg.sha512",
-    "C:\\Users\\ssm19\\.nuget\\packages\\system.data.sqlite.core\\1.0.114.3\\system.data.sqlite.core.1.0.114.3.nupkg.sha512"
+    "C:\\Users\\admin\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.114.3\\stub.system.data.sqlite.core.netstandard.1.0.114.3.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.data.sqlite.core\\1.0.114.3\\system.data.sqlite.core.1.0.114.3.nupkg.sha512"
   ],
   "logs": []
 }

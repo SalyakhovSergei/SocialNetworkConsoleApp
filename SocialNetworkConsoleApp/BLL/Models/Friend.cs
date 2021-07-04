@@ -2,18 +2,8 @@
 {
     public class Friend
     {
-        public int Id { get; set; }
         public int UserId { get; set; } 
-        public int FriendId { get; set; }
+        public string FriendEmail { get; set; }
         
-        public string Email { get; set; }
-
-        public Friend(int id, int userId, int friendId)
-        {
-            Id = id;
-            UserId = userId;
-            FriendId = friendId;
-            
-        }
     }
 }

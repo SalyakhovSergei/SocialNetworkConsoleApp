@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace SocialNetworkConsoleApp.BLL.Models
 {
@@ -17,16 +18,18 @@ namespace SocialNetworkConsoleApp.BLL.Models
         public IEnumerable<Message> OutgoingMessages { get; }
 
         public User(int id, string firstName, string lastName, string password, 
-            string email, string photo, string favoriteMovie, string favoriteBook)
+            string email, string photo, string favoriteMovie, string favoriteBook, IEnumerable<Message> incomingMessage, IEnumerable<Message> outgoingMessages)
         {
-            this.Id = id;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Password = password;
-            this.Email = email;
-            this.Photo = photo;
-            this.FavoriteMovie = favoriteMovie;
-            this.FavoriteBook = favoriteBook;
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Password = password;
+            Email = email;
+            Photo = photo;
+            FavoriteMovie = favoriteMovie;
+            FavoriteBook = favoriteBook;
+            IncomingMessages = incomingMessage;
+            OutgoingMessages = outgoingMessages;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace SocialNetworkConsoleApp.PL.Views
                 SuccessMessage.Show("Вы успешно вошли в социальную сеть!");
                 SuccessMessage.Show("Добро пожаловать " + user.FirstName);
 
-                Program.userMenuView.Show(user);
+                UserMenuView.Show(user);
             }
 
             catch (WrongPasswordException)

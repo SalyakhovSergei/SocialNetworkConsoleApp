@@ -2,9 +2,9 @@
 {
     public class MessageEntity
     {
-        public int Id { get; set; }
-        public string Content { get; set; }
-        public int SenderId { get; set; }
-        public int RecipientId { get; set; }
+        public int id { get; set; }
+        public string content { get; set; }
+        public int sender_id { get; set; }
+        public int recipient_id { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace SocialNetworkConsoleApp.PL {
   {
     static MessageService messageService;
     static UserService userService;
+    static FriendServices friendServices;
     public static MainView mainView;
     public static RegistrationView registrationView;
     public static AuthenticationView authenticationView;
@@ -18,11 +19,13 @@ namespace SocialNetworkConsoleApp.PL {
     public static MessageSendingView messageSendingView;
     public static UserIncomingMessageView userIncomingMessageView;
     public static UserOutcomingMessageView userOutcomingMessageView;
+    public static FriendsInfoView friendsInfoView;
 
     static void Main(string[] args)
     {
       userService = new UserService();
       messageService = new MessageService();
+      friendServices = new FriendServices();
 
       mainView = new MainView();
       registrationView = new RegistrationView(userService);
@@ -33,6 +36,7 @@ namespace SocialNetworkConsoleApp.PL {
       messageSendingView = new MessageSendingView(messageService, userService);
       userIncomingMessageView = new UserIncomingMessageView();
       userOutcomingMessageView = new UserOutcomingMessageView();
+      friendsInfoView = new FriendsInfoView(friendServices);
 
       while (true)
       {

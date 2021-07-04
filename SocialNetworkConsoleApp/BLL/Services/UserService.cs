@@ -35,10 +35,10 @@ namespace SocialNetworkConsoleApp.BLL.Services
 
             var userEntity = new UserEntity()
             {
-                FirstName = userRegistrationData.FirstName,
-                LastName = userRegistrationData.LastName,
-                Password = userRegistrationData.Password,
-                EMail = userRegistrationData.Email
+                firstname = userRegistrationData.FirstName,
+                lastname = userRegistrationData.LastName,
+                password = userRegistrationData.Password,
+                email = userRegistrationData.Email
             };
 
             if (this.userRepository.Create(userEntity) == 0)
@@ -52,7 +52,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
             if (findUserEntity is null) 
                 throw new UserNotFoundException();
 
-            if (findUserEntity.Password != userAuthenticationData.Password)
+            if (findUserEntity.password != userAuthenticationData.Password)
                 throw new WrongPasswordException();
 
             return ConstructUserModel(findUserEntity);
@@ -78,14 +78,14 @@ namespace SocialNetworkConsoleApp.BLL.Services
         {
             var updatatableUserEntity = new UserEntity()
             {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Password = user.Password,
-                EMail = user.Email,
-                Photo = user.Photo,
-                FavoriteMovie = user.FavoriteMovie,
-                FavoriteBook = user.FavoriteBook
+                id = user.Id,
+                firstname = user.FirstName,
+                lastname = user.LastName,
+                password = user.Password,
+                email = user.Email,
+                photo = user.Photo,
+                favorite_movie = user.FavoriteMovie,
+                favorite_book = user.FavoriteBook
 
             };
             if (this.userRepository.Update(updatatableUserEntity) == 0)
@@ -94,15 +94,19 @@ namespace SocialNetworkConsoleApp.BLL.Services
         
         private User ConstructUserModel(UserEntity userEntity)
         {
+            var incomingmessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
+            var outgoingmessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
             return new User
-                (userEntity.Id,
-                userEntity.FirstName,
-                userEntity.LastName,
-                userEntity.Password,
-                userEntity.EMail,
-                userEntity.Photo,
-                userEntity.FavoriteMovie,
-                userEntity.FavoriteBook);
+                (userEntity.id,
+                userEntity.firstname,
+                userEntity.lastname,
+                userEntity.password,
+                userEntity.email,
+                userEntity.photo,
+                userEntity.favorite_movie,
+                userEntity.favorite_book,
+                incomingmessages,
+                outgoingmessages);
         }
     }
 }
