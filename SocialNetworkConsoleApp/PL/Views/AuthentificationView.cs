@@ -7,10 +7,10 @@ namespace SocialNetworkConsoleApp.PL.Views
 {
     public class AuthenticationView
     {
-        UserService userService;
+        private readonly UserService _userService;
         public AuthenticationView(UserService userService)
         {
-            this.userService = userService;
+            this._userService = userService;
         }
 
         public void Show()
@@ -25,7 +25,7 @@ namespace SocialNetworkConsoleApp.PL.Views
 
             try
             {
-                var user = this.userService.Authentificate(authenticationData);
+                var user = this._userService.Authentificate(authenticationData);
 
                 SuccessMessage.Show("Вы успешно вошли в социальную сеть!");
                 SuccessMessage.Show("Добро пожаловать " + user.FirstName);

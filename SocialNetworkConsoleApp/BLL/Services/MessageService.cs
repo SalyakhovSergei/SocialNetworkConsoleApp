@@ -10,22 +10,22 @@ namespace SocialNetworkConsoleApp.BLL.Services
 {
     public class MessageService
     {
-        IMessageRepository messageRepository;
-        IUserRepository userRepository;
+        private readonly IMessageRepository _messageRepository;
+        private readonly IUserRepository _userRepository;
         public MessageService()
         {
-            userRepository = new UserRepository();
-            messageRepository = new MessageRepository();
+            _userRepository = new UserRepository();
+            _messageRepository = new MessageRepository();
         }
 
         public IEnumerable<Message> GetIncomingMessagesByUserId(int recipientId)
         {
             var messages = new List<Message>();
 
-            messageRepository.FindByRecipientId(recipientId).ToList().ForEach(m =>
+            _messageRepository.FindByRecipientId(recipientId).ToList().ForEach(m =>
             {
-                var senderUserEntity = userRepository.FindById(m.sender_id);
-                var recipientUserEntity = userRepository.FindById(m.recipient_id);
+                var senderUserEntity = _userRepository.FindById(m.sender_id);
+                var recipientUserEntity = _userRepository.FindById(m.recipient_id);
 
                 messages.Add(new Message(m.id, m.content, senderUserEntity.email, recipientUserEntity.email));
             });
@@ -37,10 +37,10 @@ namespace SocialNetworkConsoleApp.BLL.Services
         {
             var messages = new List<Message>();
 
-            messageRepository.FindBySenderId(senderId).ToList().ForEach(m =>
+            _messageRepository.FindBySenderId(senderId).ToList().ForEach(m =>
             {
-                var senderUserEntity = userRepository.FindById(m.sender_id);
-                var recipientUserEntity = userRepository.FindById(m.recipient_id);
+                var senderUserEntity = _userRepository.FindById(m.sender_id);
+                var recipientUserEntity = _userRepository.FindById(m.recipient_id);
 
                 messages.Add(new Message(m.id, m.content, senderUserEntity.email, recipientUserEntity.email));
             });
@@ -56,7 +56,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
             if (messageSendingData.Content.Length > 5000)
                 throw new ArgumentOutOfRangeException();
 
-            var findUserEntity = this.userRepository.FindByEmail(messageSendingData.RecipientEmail);
+            var findUserEntity = this._userRepository.FindByEmail(messageSendingData.RecipientEmail);
             if (findUserEntity is null) throw new UserNotFoundException();
 
             var messageEntity = new MessageEntity()
@@ -66,7 +66,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
                 recipient_id = findUserEntity.id
             };
 
-            if (this.messageRepository.Create(messageEntity) == 0)
+            if (this._messageRepository.Create(messageEntity) == 0)
                 throw new Exception();
         }
     }

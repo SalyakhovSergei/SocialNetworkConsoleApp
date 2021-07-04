@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using SocialNetworkConsoleApp.BLL.Exceptions;
 using SocialNetworkConsoleApp.BLL.Models;
 using SocialNetworkConsoleApp.DAL.Entities;
@@ -11,18 +8,18 @@ namespace SocialNetworkConsoleApp.BLL.Services
 {
     public class FriendServices
     {
-        IFriendRepository friendRepository;
-        IUserRepository userRepository;
+        private readonly IFriendRepository _friendRepository;
+        private readonly IUserRepository _userRepository;
        
         public FriendServices()
         {
-            friendRepository = new FriendRepository();
-            userRepository = new UserRepository();
+            _friendRepository = new FriendRepository();
+            _userRepository = new UserRepository();
         }
        
        public void AddFriend(Friend friend)
         {
-            var findFriend = userRepository.FindByEmail(friend.FriendEmail);
+            var findFriend = _userRepository.FindByEmail(friend.FriendEmail);
             if (findFriend is null) throw new UserNotFoundException();
 
             var friendEntity = new FriendEntity()
@@ -31,7 +28,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
                 friend_id = findFriend.id
             };
 
-            if (this.friendRepository.Create(friendEntity) == 0)
+            if (this._friendRepository.Create(friendEntity) == 0)
                 throw new Exception();
         }
 
