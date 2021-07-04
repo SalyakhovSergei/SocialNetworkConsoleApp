@@ -7,12 +7,12 @@ namespace SocialNetworkConsoleApp.PL.Views
 {
     public class MessageSendingView
     {
-        UserService userService;
-        MessageService messageService;
+        private readonly UserService _userService;
+        private readonly MessageService _messageService;
         public MessageSendingView(MessageService messageService, UserService userService)
         {
-            this.messageService = messageService;
-            this.userService = userService;
+            this._messageService = messageService;
+            this._userService = userService;
         }
 
         public void Show(User user)
@@ -29,11 +29,11 @@ namespace SocialNetworkConsoleApp.PL.Views
 
             try
             {
-                messageService.SendMessage(messageSendingData);
+                _messageService.SendMessage(messageSendingData);
 
                 SuccessMessage.Show("Сообщение успешно отправлено!");
 
-                user = userService.FindById(user.Id);
+                user = _userService.FindById(user.Id);
             }
 
             catch (UserNotFoundException)

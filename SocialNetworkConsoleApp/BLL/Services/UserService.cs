@@ -9,12 +9,12 @@ namespace SocialNetworkConsoleApp.BLL.Services
 {
     public class UserService
     {
-        MessageService messageService;
-        IUserRepository userRepository;
+        private readonly MessageService _messageService;
+        private readonly IUserRepository _userRepository;
         public UserService()
         {
-            userRepository = new UserRepository();
-            messageService = new MessageService();
+            _userRepository = new UserRepository();
+            _messageService = new MessageService();
         }
         public void Register(UserRegistrationData userRegistrationData)
         {
@@ -30,7 +30,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
                 throw new ArgumentNullException();
             if (!new EmailAddressAttribute().IsValid(userRegistrationData.Email))
                 throw new ArgumentNullException();
-            if(userRepository.FindByEmail(userRegistrationData.Email) != null)
+            if(_userRepository.FindByEmail(userRegistrationData.Email) != null)
                 throw new ArgumentNullException();
 
             var userEntity = new UserEntity()
@@ -41,14 +41,14 @@ namespace SocialNetworkConsoleApp.BLL.Services
                 email = userRegistrationData.Email
             };
 
-            if (this.userRepository.Create(userEntity) == 0)
+            if (this._userRepository.Create(userEntity) == 0)
                 throw new Exception();
 
         }
 
         public User Authentificate(UserAuthenticationData userAuthenticationData)
         {
-            var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
+            var findUserEntity = _userRepository.FindByEmail(userAuthenticationData.Email);
             if (findUserEntity is null) 
                 throw new UserNotFoundException();
 
@@ -60,7 +60,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
 
         public User FindByEmail(string email)
         {
-            var findUserEntity = userRepository.FindByEmail(email);
+            var findUserEntity = _userRepository.FindByEmail(email);
             if (findUserEntity is null)
                 throw new UserNotFoundException();
             
@@ -68,7 +68,7 @@ namespace SocialNetworkConsoleApp.BLL.Services
         }
         public User FindById(int id)
         {
-            var findUserEntity = userRepository.FindById(id);
+            var findUserEntity = _userRepository.FindById(id);
             if (findUserEntity is null) throw new UserNotFoundException();
 
             return ConstructUserModel(findUserEntity);
@@ -88,14 +88,14 @@ namespace SocialNetworkConsoleApp.BLL.Services
                 favorite_book = user.FavoriteBook
 
             };
-            if (this.userRepository.Update(updatatableUserEntity) == 0)
+            if (this._userRepository.Update(updatatableUserEntity) == 0)
                 throw new Exception();
         }
         
         private User ConstructUserModel(UserEntity userEntity)
         {
-            var incomingmessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
-            var outgoingmessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
+            var incomingmessages = _messageService.GetIncomingMessagesByUserId(userEntity.id);
+            var outgoingmessages = _messageService.GetOutcomingMessagesByUserId(userEntity.id);
             return new User
                 (userEntity.id,
                 userEntity.firstname,

@@ -7,23 +7,23 @@ namespace SocialNetworkConsoleApp.PL.Views
 {
     public class FriendsInfoView
     {
-        FriendServices friendServices;
+        private readonly FriendServices _friendServices;
        public FriendsInfoView(FriendServices friendServices)
         {
-            this.friendServices = friendServices;
+            this._friendServices = friendServices;
         }
 
         public void ShowFriends(User user)
         { 
             try
             {
-            var friend = new Friend();
-            Console.WriteLine("Введите почтовый адрес друга для добавления его в друзья: ");
-            friend.FriendEmail = Console.ReadLine();
-            friend.UserId = user.Id;
+                var friend = new Friend();
+                Console.WriteLine("Введите почтовый адрес друга для добавления его в друзья: ");
+                friend.FriendEmail = Console.ReadLine();
+                friend.UserId = user.Id;
 
-            friendServices.AddFriend(friend);
-            SuccessMessage.Show("Поздравляем, у Вас новый друг");
+                _friendServices.AddFriend(friend);
+                SuccessMessage.Show("Поздравляем, у Вас новый друг");
                
             }
             catch (UserNotFoundException)

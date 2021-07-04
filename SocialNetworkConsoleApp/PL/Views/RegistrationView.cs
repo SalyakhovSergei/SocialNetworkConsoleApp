@@ -6,10 +6,10 @@ namespace SocialNetworkConsoleApp.PL.Views
 {
     public class RegistrationView
     {
-        UserService userService;
+        private readonly UserService _userService;
         public RegistrationView(UserService userService)
         {
-            this.userService = userService;
+            this._userService = userService;
         }
 
         public void Show()
@@ -30,7 +30,7 @@ namespace SocialNetworkConsoleApp.PL.Views
 
             try
             {
-                this.userService.Register(userRegistrationData);
+                this._userService.Register(userRegistrationData);
 
                 SuccessMessage.Show("Ваш профиль успешно создан. Теперь Вы можете войти в систему под своими учетными данными.");
             }

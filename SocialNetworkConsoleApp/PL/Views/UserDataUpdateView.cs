@@ -6,10 +6,10 @@ namespace SocialNetworkConsoleApp.PL.Views
 {
     public class UserDataUpdateView
     {
-        UserService userService;
+        private readonly UserService _userService;
         public UserDataUpdateView(UserService userService)
         {
-            this.userService = userService;
+            this._userService = userService;
         }
 
         public void Show(User user)
@@ -29,7 +29,7 @@ namespace SocialNetworkConsoleApp.PL.Views
             Console.Write("Моя любимая книга:");
             user.FavoriteBook = Console.ReadLine();
 
-            this.userService.Update(user);
+            this._userService.Update(user);
 
             SuccessMessage.Show("Ваш профиль успешно обновлён!");
         }
